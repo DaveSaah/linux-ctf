@@ -10,18 +10,18 @@ for ((i = 1; i <= LEVEL_COUNT; i++)); do
 	# create level
 	sudo useradd --home=$level_dir -s /bin/bash $level
 
-	# # Add the user to the docker group for Docker access
-	# sudo usermod -aG docker $level
-	#
-	# # Set directory permissions
-	# sudo chmod a+rx $level_dir
-	# sudo chown root:$level $level_dir
-	#
-	# # Add readme
-	# echo "# $level" | sudo tee $level_dir/README.md >/dev/null
-	# sudo chmod a+rx $level_dir/README.md
-	# sudo chown root:$level $level_dir/README.md
-	#
+	# Add the user to the docker group for Docker access
+	sudo usermod -aG docker $level
+
+	# Add readme
+	echo "# $level" | sudo tee $level_dir/README.md >/dev/null
+	sudo chmod a+rx $level_dir/README.md
+	sudo chown $level:$level $level_dir/README.md
+
+	# Set level directory permissions
+	sudo chmod a+rx $level_dir
+	sudo chown $level:$level $level_dir
+
 	echo "$level created."
 	level_users+=("$level")
 done
