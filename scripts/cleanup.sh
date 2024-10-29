@@ -20,4 +20,7 @@ for ((i = 1; i <= LEVEL_COUNT; i++)); do
 	fi
 done
 
+# clean ssh config
+sudo sed -i '/^Match User level.*/, $d' /etc/ssh/sshd_config
+
 echo "Cleanup complete."
