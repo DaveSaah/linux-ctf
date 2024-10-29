@@ -6,9 +6,9 @@ RUN useradd -m -s /bin/bash linux
 
 USER linux
 
-WORKDIR /home/linux/ctf
+WORKDIR /home/linux
 
-COPY ./setup/bashrc ../.bashrc
+COPY ./setup/bashrc .bashrc
 COPY ./bin/glow /bin/
 
 CMD [ "/bin/bash" ]
